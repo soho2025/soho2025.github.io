@@ -2,8 +2,8 @@
 let cart = [];
 
 // إضافة منتج إلى السلة
-function addToCart(name, price) {
-    cart.push({ name: name, price: price });
+function addToCart(name, price, image) {
+    cart.push({ name: name, price: price, image: image });
     updateCartDisplay();
 }
 
@@ -18,7 +18,7 @@ function updateCartDisplay() {
     let total = 0;
     cart.forEach((item, index) => {
         const li = document.createElement("li");
-        li.innerHTML = `${item.name} - ${item.price} جنيه <span class="delete-btn" onclick="removeFromCart(${index})">حذف</span>`;
+        li.innerHTML = `<img src="${item.image}" class="cart-item-image"> <span class="cart-item-name">${item.name}</span> - <span class="cart-item-price">${item.price} جنيه</span> <span class="delete-btn" onclick="removeFromCart(${index})">حذف</span>`;
         cartList.appendChild(li);
         total += item.price;
     });
@@ -64,5 +64,5 @@ function sendOrder() {
 // تبديل عرض السلة المنسدلة
 function toggleCart() {
     const cartDropdown = document.getElementById("cart-dropdown");
-    cartDropdown.style.display = cartDropdown.style.display === "none" || cartDropdown.style.display === "" ? "block" : "none";
+    cartDropdown.classList.toggle('show');
 }
