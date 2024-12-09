@@ -16,9 +16,9 @@ function updateCartDisplay() {
     cartList.innerHTML = ""; // مسح السلة الحالية
 
     let total = 0;
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.price} جنيه`;
+        li.innerHTML = `${item.name} - ${item.price} جنيه <span class="delete-btn" onclick="removeFromCart(${index})">حذف</span>`;
         cartList.appendChild(li);
         total += item.price;
     });
@@ -31,6 +31,12 @@ function updateCartDisplay() {
     // تحديث العداد في أيقونة السلة
     cartCount.textContent = cart.length;
     cartTotal.textContent = `${total} جنيه`;
+}
+
+// إزالة منتج من السلة
+function removeFromCart(index) {
+    cart.splice(index, 1); // إزالة العنصر من المصفوفة
+    updateCartDisplay(); // تحديث العرض بعد الحذف
 }
 
 // إرسال الطلب إلى واتساب
