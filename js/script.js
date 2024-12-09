@@ -1,49 +1,49 @@
-
+// مصفوفة لحفظ المنتجات في السلة
 let cart = [];
-let total = 0;
 
-function addToCart(itemName, itemPrice) {
-  cart.push({ name: itemName, price: itemPrice });
-  total += itemPrice;
-  updateCart();
+// إضافة منتج إلى السلة
+function addToCart(name, price) {
+    cart.push({ name: name, price: price });
+    updateCartDisplay();
 }
 
-function updateCart() {
-  const cartItems = document.getElementById("cartItems");
-  const totalPrice = document.getElementById("totalPrice");
+// تحديث عرض السلة
+function updateCartDisplay() {
+    const cartList = document.getElementById("cart-list");
+    cartList.innerHTML = ""; // مسح السلة الحالية
 
-  // تحديث قائمة السلة
-  cartItems.innerHTML = "";
-  cart.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} - ${item.price} جنيه`;
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "حذف";
-    removeBtn.onclick = () => removeFromCart(index);
-    li.appendChild(removeBtn);
-    cartItems.appendChild(li);
-  });
+    let total = 0;
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.price} جنيه`;
+        cartList.appendChild(li);
+        total += item.price;
+    });
 
-  // تحديث السعر الإجمالي
-  totalPrice.textContent = `الإجمالي: ${total} جنيه`;
+    // إضافة المجموع الكلي
+    const totalLi = document.createElement("li");
+    totalLi.textContent = `الإجمالي: ${total} جنيه`;
+    cartList.appendChild(totalLi);
 }
 
-function removeFromCart(index) {
-  total -= cart[index].price;
-  cart.splice(index, 1);
-  updateCart();
-}
-
+// إرسال الطلب إلى واتساب
 function sendOrder() {
-  if (cart.length === 0) {
-    alert("السلة فارغة. الرجاء إضافة أطباق قبل الإرسال.");
-    return;
-  }
+    if (cart.length === 0) {
+        alert("السلة فارغة. الرجاء إضافة أطباق قبل الإرسال.");
+        return;
+    }
 
-  const orderDetails = cart.map(item => `${item.name} - ${item.price} جنيه`).join("\n");
-  alert(`تم إرسال الطلب:\n${orderDetails}\nالإجمالي: ${total} جنيه`);
-  // تصفية السلة بعد الإرسال
-  cart = [];
-  total = 0;
-  updateCart();
+    // إعداد نص الطلب
+    const orderDetails = cart.map(item => `- ${item.name}: ${item.price} جنيه`).join("\n");
+    const totalPrice = `\nالإجمالي: ${cart.reduce((total, item) => total + item.price, 0)} جنيه`;
+    const message = `طلب جديد من الموقع:\n\n${orderDetails}\n${totalPrice}`;
+
+    // رقم الواتساب المعدل
+    const phoneNumber = "201288316889"; // رقم الواتساب لاستقبال الطلبات
+
+    // رابط الواتساب
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // توجيه المستخدم إلى واتساب
+    window.location.href = whatsappUrl;
 }
