@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر المأكولات</title>
+    <title>متجر المأكولات والسندوتشات</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- العنوان -->
+    <header>
+        <h1>مرحبا بك في متجر المأكولات والسندوتشات</h1>
+    </header>
+
     <!-- سلة المشتريات المثبتة في الأعلى -->
     <div class="floating-cart">
-        <div class="cart-icon" id="cart-toggle" onclick="toggleCart()">
-            <img src="images/cart-icon.png" alt="سلة المشتريات">
-            <span id="cart-count">0</span>
-        </div>
-        <div class="cart-details">
-            <span id="cart-total">0 جنيه</span>
-            <button id="view-cart" onclick="toggleCart()">عرض</button>
-        </div>
+        <span id="cart-count">0</span> سلة المشتريات
+        <span id="cart-total">0 جنيه</span>
+        <div id="cart-toggle" class="cart-toggle" onclick="toggleCart()">↕️</div>
     </div>
 
-    <!-- القائمة المنسدلة -->
+    <!-- عرض المنتجات -->
+    <section class="product-gallery">
+        <div class="product-item">
+            <img src="images/sandwich1.jpg" alt="سندوتش 1">
+            <h3>سندوتش لحم</h3>
+            <p>سندوتش لذيذ من اللحم الطازج.</p>
+            <button onclick="addToCart('سندوتش لحم', 30)">أضف إلى السلة</button>
+        </div>
+        <div class="product-item">
+            <img src="images/sandwich2.jpg" alt="سندوتش 2">
+            <h3>سندوتش دجاج</h3>
+            <p>سندوتش دجاج مشوي مع صوص خاص.</p>
+            <button onclick="addToCart('سندوتش دجاج', 25)">أضف إلى السلة</button>
+        </div>
+    </section>
+
+    <!-- قائمة المشتريات المنسدلة -->
     <div id="cart-dropdown" class="cart-dropdown">
+        <h2>سلة المشتريات</h2>
         <ul id="cart-list"></ul>
-        <button id="send-order" onclick="sendOrder()">إرسال الطلب</button>
+        <button onclick="sendOrder()">إرسال الطلب إلى واتساب</button>
     </div>
 
-    <!-- إضافة بعض المنتجات كمثال -->
-    <div class="product">
-        <img src="images/sandwich1.jpg" alt="ساندويتش 1" class="product-image">
-        <h3>ساندويتش جبنة</h3>
-        <p>15 جنيه</p>
-        <button onclick="addToCart('ساندويتش جبنة', 15, 'images/sandwich1.jpg')">أضف إلى السلة</button>
-    </div>
-
-    <div class="product">
-        <img src="images/sandwich2.jpg" alt="ساندويتش 2" class="product-image">
-        <h3>ساندويتش فلافل</h3>
-        <p>10 جنيه</p>
-        <button onclick="addToCart('ساندويتش فلافل', 10, 'images/sandwich2.jpg')">أضف إلى السلة</button>
-    </div>
-
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
