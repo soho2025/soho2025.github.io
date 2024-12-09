@@ -1,32 +1,99 @@
+/* تنسيق الصفحة بشكل عام */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تنسيق النصوص العامة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+}
+
+/* تنسيق المعرض الخاص بالمنتجات */
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.product-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* تنسيق سلة المشتريات */
 .cart {
-  margin-top: 30px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .cart h2 {
-  color: #d35400;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.cart ul {
-  list-style: none;
-  padding: 0;
+
+#cart-list {
+    list-style-type: none;
+    padding: 0;
 }
-.cart ul li {
-  margin: 10px 0;
+
+#cart-list li {
+    margin: 10px 0;
 }
+
 button {
-  background-color: #d35400;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
 }
+
 button:hover {
-  background-color: #e67e22;
+    background-color: #45a049;
+}
+
+/* تنسيق للمستعرضات الصغيرة */
+@media (max-width: 768px) {
+    .product-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-item {
+        width: 80%;
+    }
 }
