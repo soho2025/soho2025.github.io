@@ -3,7 +3,9 @@ let cart = [];
 
 // إضافة منتج إلى السلة
 function addToCart(name, price, image) {
+    // إضافة المنتج إلى السلة
     cart.push({ name: name, price: price, image: image });
+    // تحديث عرض السلة بعد إضافة المنتج
     updateCartDisplay();
 }
 
@@ -13,9 +15,11 @@ function updateCartDisplay() {
     const cartCount = document.getElementById("cart-count");
     const cartTotal = document.getElementById("cart-total");
 
-    cartList.innerHTML = ""; // مسح السلة الحالية
+    // مسح السلة الحالية
+    cartList.innerHTML = "";
 
     let total = 0;
+    // إضافة المنتجات إلى قائمة السلة
     cart.forEach((item, index) => {
         const li = document.createElement("li");
         li.innerHTML = `<img src="${item.image}" class="cart-item-image"> <span class="cart-item-name">${item.name}</span> - <span class="cart-item-price">${item.price} جنيه</span> <span class="delete-btn" onclick="removeFromCart(${index})">حذف</span>`;
