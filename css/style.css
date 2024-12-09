@@ -48,18 +48,53 @@ header {
     border-radius: 8px;
 }
 
-/* تنسيق سلة المشتريات */
-.cart {
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* تنسيق سلة المشتريات العائمة */
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cart h2 {
+.floating-cart img {
+    width: 40px;
+    height: 40px;
+}
+
+.cart-summary {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.cart-summary p {
+    margin: 0;
+}
+
+/* القائمة المنسدلة */
+.cart-dropdown {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-dropdown h2 {
+    margin-bottom: 10px;
 }
 
 #cart-list {
@@ -95,5 +130,10 @@ button:hover {
 
     .product-item {
         width: 80%;
+    }
+
+    .floating-cart {
+        right: 10px;
+        bottom: 10px;
     }
 }
