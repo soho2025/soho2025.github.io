@@ -1,40 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مطعم السندوتشات</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المأكولات والسندوتشات</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>مرحبًا بك في مطعمنا!</h1>
-  <p>استمتع بأشهى المأكولات والسندوتشات.</p>
+    <!-- العنوان -->
+    <header>
+        <h1>مرحبا بك في متجر المأكولات والسندوتشات</h1>
+    </header>
 
-  <!-- قائمة المأكولات -->
-  <div class="menu">
-    <div class="item">
-      <img src="images/Soho-party.jpg" alt="شاورما">
-      <h3>سندوتش شاورما</h3>
-      <p>السعر: 50 جنيه</p>
-      <button onclick="addToCart('سندوتش شاورما', 50)">إضافة للسلة</button>
-    </div>
-    <div class="item">
-      <img src="images/Soho-party.jpg" alt="برجر">
-      <h3>سندوتش برجر</h3>
-      <p>السعر: 70 جنيه</p>
-      <button onclick="addToCart('سندوتش برجر', 70)">إضافة للسلة</button>
-    </div>
-  </div>
+    <!-- عرض المنتجات -->
+    <section class="product-gallery">
+        <div class="product-item">
+            <img src="images/sandwich1.jpg" alt="سندوتش 1">
+            <h3>سندوتش لحم</h3>
+            <p>سندوتش لذيذ من اللحم الطازج.</p>
+            <button onclick="addToCart('سندوتش لحم', 30)">أضف إلى السلة</button>
+        </div>
+        <div class="product-item">
+            <img src="images/sandwich2.jpg" alt="سندوتش 2">
+            <h3>سندوتش دجاج</h3>
+            <p>سندوتش دجاج مشوي مع صوص خاص.</p>
+            <button onclick="addToCart('سندوتش دجاج', 25)">أضف إلى السلة</button>
+        </div>
+        <!-- إضافة المزيد من المنتجات هنا -->
+    </section>
 
-  <!-- سلة المشتريات -->
-  <div class="cart">
-    <h2>سلة المشتريات</h2>
-    <ul id="cartItems"></ul>
-    <p id="totalPrice">الإجمالي: 0 جنيه</p>
-    <button onclick="sendOrder()">إرسال الطلب</button>
-  </div>
+    <!-- السلة -->
+    <section class="cart">
+        <h2>سلة المشتريات</h2>
+        <ul id="cart-list"></ul>
+        <button onclick="sendOrder()">إرسال الطلب إلى واتساب</button>
+    </section>
 
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
