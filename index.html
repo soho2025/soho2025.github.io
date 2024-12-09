@@ -9,32 +9,40 @@
 <body>
     <!-- العنوان -->
     <header>
-        <h1>مرحبا بك في متجر المأكولات والسندوتشات</h1>
+        <h1>Soho </h1>
     </header>
 
     <!-- عرض المنتجات -->
     <section class="product-gallery">
         <div class="product-item">
-            <img src="images/Soho-party.jpg" alt="سندوتش 1">
+            <img src="images/soho-party.jpg" alt="سندوتش 1">
             <h3>سندوتش لحم</h3>
             <p>سندوتش لذيذ من اللحم الطازج.</p>
             <button onclick="addToCart('سندوتش لحم', 30)">أضف إلى السلة</button>
         </div>
         <div class="product-item">
-            <img src="images/Soho-party.jpg.jpg" alt="سندوتش 2">
+            <img src="images/soho-party.jpg" alt="سندوتش 2">
             <h3>سندوتش دجاج</h3>
             <p>سندوتش دجاج مشوي مع صوص خاص.</p>
             <button onclick="addToCart('سندوتش دجاج', 25)">أضف إلى السلة</button>
         </div>
-        <!-- إضافة المزيد من المنتجات هنا -->
     </section>
 
-    <!-- السلة -->
-    <section class="cart">
+    <!-- سلة المشتريات العائمة -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <img src="images/cart-icon.png" alt="سلة المشتريات">
+        <div class="cart-summary">
+            <p id="cart-count">0</p>
+            <p id="cart-total">0 جنيه</p>
+        </div>
+    </div>
+
+    <!-- قائمة المشتريات المنسدلة -->
+    <div id="cart-dropdown" class="cart-dropdown">
         <h2>سلة المشتريات</h2>
         <ul id="cart-list"></ul>
         <button onclick="sendOrder()">إرسال الطلب إلى واتساب</button>
-    </section>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
