@@ -1,27 +1,3 @@
-/* تنسيق الصفحة بشكل عام */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* تنسيق النصوص العامة */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-}
-
-header {
-    text-align: center;
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 0;
-}
-    
-
-
-
 /* تنسيق سلة المشتريات المثبتة */
 .floating-cart {
     position: fixed;
@@ -207,4 +183,4 @@ header {
 .add-to-cart:hover {
     background-color: #ff8533;
     transform: scale(1.1);
-    }
+}
