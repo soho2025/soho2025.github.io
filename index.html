@@ -3,72 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر المأكولات</title>
+    <title>متجر الطعام</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- سلة المشتريات المثبتة في الأعلى -->
-    <div class="floating-cart">
-        <div class="cart-icon" id="cart-toggle" onclick="toggleCart()">
+
+    <div class="products-container">
+        <div class="product">
+            <img src="images/sandwich1.jpg" alt="ساندويتش شاورما" class="product-image">
+            <div class="product-details">
+                <h3>ساندويتش شاورما</h3>
+                <p class="price">30 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 30, 'images/sandwich1.jpg')">أضف إلى السلة</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="images/sandwich2.jpg" alt="ساندويتش فلافل" class="product-image">
+            <div class="product-details">
+                <h3>ساندويتش فلافل</h3>
+                <p class="price">20 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 20, 'images/sandwich2.jpg')">أضف إلى السلة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- سلة المشتريات العائمة -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <div class="cart-icon">
             <img src="images/cart-icon.png" alt="سلة المشتريات">
-            <span id="cart-count">0</span>
+            <div class="cart-details">
+                <span id="cart-count">0</span> <br>
+                <span id="cart-total">0 جنيه</span>
+            </div>
         </div>
-        <div class="cart-details">
-            <span id="cart-total">0 جنيه</span>
-            <button id="view-cart" onclick="toggleCart()">عرض</button>
-        </div>
     </div>
 
-    <!-- إضافة بعض المنتجات كمثال -->
-   
-    
-<div class="product">
-    <img src="images/sandwich1.jpg" alt="Sandwich 1" class="product-image">
-    <div class="product-details">
-        <h3>ساندويتش شاورما</h3>
-        <p class="price">30 جنيه</p>
-        <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 30, 'images/sandwich1.jpg')">أضف إلى السلة</button>
-    </div>
-</div>
-
-<div class="product">
-    <img src="images/sandwich2.jpg" alt="Sandwich 2" class="product-image">
-    <div class="product-details">
-        <h3>ساندويتش فلافل</h3>
-        <p class="price">20 جنيه</p>
-        <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 20, 'images/sandwich2.jpg')">أضف إلى السلة</button>
-    </div>
-</div>
-
-    
-    
-    
-    
-    
-    <div class="product">
-        <img src="images/sandwich1.jpg" alt="ساندويتش 1" class="product-image">
-        <div class="product-details">
-            <h3>ساندويتش جبنة</h3>
-            <p class="price">15 جنيه</p>
-        </div>
-        <button class="add-to-cart" onclick="addToCart('ساندويتش جبنة', 15, 'images/sandwich1.jpg')">أضف إلى السلة</button>
-    </div>
-
-    <div class="product">
-        <img src="images/sandwich2.jpg" alt="ساندويتش 2" class="product-image">
-        <div class="product-details">
-            <h3>ساندويتش فلافل</h3>
-            <p class="price">10 جنيه</p>
-        </div>
-        <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 10, 'images/sandwich2.jpg')">أضف إلى السلة</button>
-    </div>
-
-    <!-- القائمة المنسدلة -->
+    <!-- سلة المشتريات المنسدلة -->
     <div id="cart-dropdown" class="cart-dropdown">
-        <ul id="cart-list"></ul>
+        <ul id="cart-list">
+            <!-- المنتجات ستظهر هنا -->
+        </ul>
         <button id="send-order" onclick="sendOrder()">إرسال الطلب</button>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
