@@ -10,6 +10,9 @@ function addToCart(name, price) {
 // تحديث عرض السلة
 function updateCartDisplay() {
     const cartList = document.getElementById("cart-list");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+
     cartList.innerHTML = ""; // مسح السلة الحالية
 
     let total = 0;
@@ -24,6 +27,10 @@ function updateCartDisplay() {
     const totalLi = document.createElement("li");
     totalLi.textContent = `الإجمالي: ${total} جنيه`;
     cartList.appendChild(totalLi);
+
+    // تحديث العداد في أيقونة السلة
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = `${total} جنيه`;
 }
 
 // إرسال الطلب إلى واتساب
@@ -46,4 +53,10 @@ function sendOrder() {
 
     // توجيه المستخدم إلى واتساب
     window.location.href = whatsappUrl;
+}
+
+// تبديل عرض السلة المنسدلة
+function toggleCart() {
+    const cartDropdown = document.getElementById("cart-dropdown");
+    cartDropdown.style.display = cartDropdown.style.display === "none" || cartDropdown.style.display === "" ? "block" : "none";
 }
