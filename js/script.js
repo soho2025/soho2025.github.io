@@ -1,83 +1,37 @@
+// مصفوفة لحفظ المنتجات في السلة
+let cart = [];
 
-let cart = []; // مصفوفة لتخزين العناصر في السلة
-
-// دالة لإضافة عنصر إلى السلة
-function addToCart(name, price) {
-    const imageUrl = getImageUrl(name);  // الحصول على رابط الصورة بناءً على اسم المنتج
-    const itemIndex = cart.findIndex(item => item.name === name);
-    
-    if (itemIndex !== -1) {
-        // إذا كان المنتج موجوداً، زيادة الكمية
-        cart[itemIndex].quantity++;
-    } else {
-        // إذا لم يكن موجوداً، إضافته للسلة مع الصورة
-        cart.push({ name, price, quantity: 1, imageUrl });
-    }
-    
+// إضافة منتج إلى السلة
+function addToCart(name, price, image) {
+    cart.push({ name: name, price: price, image: image });
     updateCartDisplay();
 }
 
-// دالة للحصول على رابط الصورة بناءً على اسم المنتج
-function getImageUrl(name) {
-    const productImages = {
-        'سندوتش لحم': 'images/soho-party.jpg',
-        'سندوتش دجاج': 'images/soho-party.jpg'
-    };
-    
-    return productImages[name] || 'images/default.jpg';  // صورة افتراضية إذا لم يتطابق الاسم
-}
-
-// دالة لتحديث عرض السلة في الصفحة
+// تحديث عرض السلة
 function updateCartDisplay() {
-    const cartCount = document.getElementById('cart-count');
-    const cartTotal = document.getElementById('cart-total');
-    const cartList = document.getElementById('cart-list');
-    
+    const cartList = document.getElementById("cart-list");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartList.innerHTML = ""; // مسح السلة الحالية
+
     let total = 0;
-    cartList.innerHTML = ''; // مسح العناصر الحالية في السلة
-    
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.classList.add('cart-item');
-        
-        // إضافة صورة المنتج
-        const img = document.createElement('img');
-        img.src = item.imageUrl;
-        img.alt = item.name;
-        img.classList.add('cart-item-image');
-        
-        // إضافة النص والكمية
-        const text = document.createElement('span');
-        text.textContent = `${item.name} - ${item.quantity} × ${item.price} جنيه`;
-        
-        // إضافة الصورة والنص إلى العنصر
-        li.appendChild(img);
-        li.appendChild(text);
-        
-        // إضافة العنصر إلى السلة
+    cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<img src="${item.image}" class="cart-item-image"> <span class="cart-item-name">${item.name}</span> - <span class="cart-item-price">${item.price} جنيه</span> <span class="delete-btn" onclick="removeFromCart(${index})">حذف</span>`;
         cartList.appendChild(li);
-        
-        total += item.price * item.quantity;
+        total += item.price;
     });
 
-    // تحديث عدد العناصر في السلة والمجموع الكلي
+    // إضافة المجموع الكلي
+    const totalLi = document.createElement("li");
+    totalLi.textContent = `الإجمالي: ${total} جنيه`;
+    cartList.appendChild(totalLi);
+
+    // تحديث العداد في أيقونة السلة
     cartCount.textContent = cart.length;
     cartTotal.textContent = `${total} جنيه`;
 }
-
-// دالة لفتح/إغلاق عرض السلة
-function toggleCart() {
-    const cartDropdown = document.getElementById('cart-dropdown');
-    cartDropdown.classList.toggle('show');
-}
-
-
-
-
-
-
-
-
 
 // إزالة منتج من السلة
 function removeFromCart(index) {
@@ -110,5 +64,5 @@ function sendOrder() {
 // تبديل عرض السلة المنسدلة
 function toggleCart() {
     const cartDropdown = document.getElementById("cart-dropdown");
-    cartDropdown.style.display = cartDropdown.style.display === "none" || cartDropdown.style.display === "" ? "block" : "none";
+    cartDropdown.classList.toggle('show');
 }
