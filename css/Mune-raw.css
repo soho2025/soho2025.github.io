@@ -1,1 +1,26 @@
+body, html {
 
+    margin: 0;
+
+    padding: 0;
+
+    height: 100%;
+
+    font-family: Arial, sans-serif;
+
+}
+
+.background {
+
+    background-image: url('https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/bg.jpg'); /* رابط الصورة الثابتة */
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    height: 100%;
+
+    display: flex;
+  
