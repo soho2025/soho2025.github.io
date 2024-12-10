@@ -23,4 +23,37 @@ body, html {
     height: 100%;
 
     display: flex;
-  
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.container {
+
+    width: 90%; /* المسافة على الجوانب */
+
+    max-width: 800px; /* تحديد عرض أقصى */
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.stacked-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    margin-bottom: 0px; /* مسافة بين الصور */
+
+    border-radius: 8px; /* إضافة حواف دائرية إن رغبت */
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* تأثير ظل */
+
+}
