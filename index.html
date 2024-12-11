@@ -3,73 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر الطعام</title>
+    <title>SAVOY</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <!-- قائمة المنتجات -->
     <div class="products-container">
         <div class="product">
-            <img src="images/soho1.jpg" alt="ساندويتش شاورما" class="product-image">
+            <img src="https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho1.jpg" alt="ساندويتش شاورما" class="product-image">
             <div class="product-details">
                 <h3>ساندويتش شاورما</h3>
-                <p class="price">30 جنيه</p>
-                <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 30, 'images/soho1.jpg')">أضف إلى السلة</button>
+                <p class="price">500 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 500, 'https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho1.jpg')">أضف إلى السلة</button>
             </div>
         </div>
-
         <div class="product">
-            <img src="images/soho2.jpg" alt="ساندويتش فلافل" class="product-image">
+            <img src="https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho2.jpg" alt="ساندويتش فلافل" class="product-image">
             <div class="product-details">
                 <h3>ساندويتش فلافل</h3>
-                <p class="price">20 جنيه</p>
-                <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 20, 'images/soho2.jpg')">أضف إلى السلة</button>
+                <p class="price">150 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 150, 'https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho2.jpg')">أضف إلى السلة</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho3.jpg" alt="ساندويتش مكس" class="product-image">
+            <div class="product-details">
+                <h3>ساندويتش مكس</h3>
+                <p class="price">500 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 500, 'https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho3.jpg')">أضف إلى السلة</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho1.jpg" alt="ساندويتش فلافل" class="product-image">
+            <div class="product-details">
+                <h3>ساندويتش فلافل</h3>
+                <p class="price">150 جنيه</p>
+                <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 150, 'https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/soho1.jpg')">أضف إلى السلة</button>
             </div>
         </div>
     </div>
 
-
-    <div class="products-container">
-        <div class="product">
-            <img src="images/soho3.jpg" alt="ساندويتش شاورما" class="product-image">
-            <div class="product-details">
-                <h3>ساندويتش شاورما</h3>
-                <p class="price">30 جنيه</p>
-                <button class="add-to-cart" onclick="addToCart('ساندويتش شاورما', 30, 'images/soho3.jpg')">أضف إلى السلة</button>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="images/soho1.jpg" alt="ساندويتش فلافل" class="product-image">
-            <div class="product-details">
-                <h3>ساندويتش فلافل</h3>
-                <p class="price">20 جنيه</p>
-                <button class="add-to-cart" onclick="addToCart('ساندويتش فلافل', 20, 'images/soho1.jpg')">أضف إلى السلة</button>
-            </div>
-        </div>
-    </div>
-    
-
-
-
-
-    
     <!-- سلة المشتريات العائمة -->
     <div class="floating-cart" onclick="toggleCart()">
+        <span id="cart-count">0</span> <br>
         <div class="cart-icon">
-            <img src="images/cart.png" alt="سلة المشتريات">
-            <div class="cart-details">
-                <span id="cart-count">0</span> <br>
-                <span id="cart-total">0 جنيه</span>
+            <img src="https://raw.githubusercontent.com/soho2025/soho2025.github.io/refs/heads/main/images/cart.png" alt="سلة المشتريات">
+            <div class="cart-details">       
+                <span class="cart-total">0 جنيه</span>
             </div>
         </div>
     </div>
 
     <!-- سلة المشتريات المنسدلة -->
     <div id="cart-dropdown" class="cart-dropdown">
-        <ul id="cart-list">
-            <!-- المنتجات ستظهر هنا -->
-        </ul>
+        <div id="cart-close-btn" class="cart-close-btn" onclick="closeCart()">×</div>
+        <ul id="cart-list"></ul>
+        <div class="total-amount">
+            إجمالي المبلغ: <span class="cart-total">0 جنيه</span>
+        </div>
         <button id="send-order" onclick="sendOrder()">إرسال الطلب</button>
     </div>
 
